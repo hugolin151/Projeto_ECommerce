@@ -22,8 +22,19 @@ if (!$produto) {
 $nome        = $produto['nome'];
 $descricao   = $produto['descricao'];
 $preco       = $produto['preco'];
-//$img         = $produto['img']; 
+$img         = $produto['img']; 
 $sku         = $produto['sku'];
+
+// Agora sim: usar PDO e a variável correta
+$sqlAvaliacao = $pdo->prepare("
+    SELECT nota, comentario 
+    FROM avaliacao 
+    WHERE produto_id = ? AND aprovado = 1
+    ORDER BY id DESC
+");
+
+$sqlAvaliacao->execute([$id]);
+$avaliacoes = $sqlAvaliacao->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -138,20 +149,26 @@ $sku         = $produto['sku'];
     </div>
 
     <!-- Avaliações -->
-    <div class="mt-5">
-      <h4>Avaliações dos Usuários</h4>
+  <div class="mt-5">
+  <h4>Avaliações dos Usuários</h4>
 
-      <div class="border p-3 mb-2">
-        <strong>User 1</strong>
-        <p>Texto texto texto texto texto texto texto texto texto texto texto.</p>
-      </div>
+  <div class="mt-5">
+  <h4>Avaliações dos Usuários</h4>
 
-      <div class="border p-3 mb-2">
-        <strong>User 2</strong>
-        <p>Texto texto texto texto texto texto texto texto texto texto texto.</p>
-      </div>
+  <?php if (count($avaliacoes) > 0): ?>
 
-    </div>
+      <?php foreach ($avaliacoes as $av): ?>
+          <div class="border p-3 mb-2">
+              <strong>Nota: <?= $av['nota'] ?> ⭐</strong>
+              <p><?= $av['comentario'] ?></p>
+          </div>
+      <?php endforeach; ?>
+
+  <?php else: ?>
+      <p>Nenhuma avaliação para este produto.</p>
+  <?php endif; ?>
+</div>
+
 
   </div><br><br><br><br><br><br><br>
 
