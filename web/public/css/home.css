@@ -1,0 +1,100 @@
+/* Fundo geral */
+body {
+    background-color: #424242 !important;
+    color: #ffffff !important; /* deixa textos brancos no site inteiro */
+}
+
+/* Manter a barra de links superior clara */
+.bg-light.border-bottom {
+    background-color: #f8f9fa !important;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 1);
+}
+
+/* A barra superior precisa do texto escuro */
+.bg-light.border-bottom a,
+.bg-light.border-bottom .dropdown-toggle {
+    color: #000 !important;
+}
+
+/* Dropdown deve aparecer corretamente mesmo com texto branco no body */
+/* Dropdown com fundo branco */
+.dropdown-menu {
+    background-color: #ffffff !important;
+}
+
+/* Mantendo o texto escuro */
+.dropdown-menu a {
+    color: #000000 !important;
+}
+
+/* Hover para os itens do dropdown */
+.dropdown-menu a:hover {
+    background-color: #f1f1f1 !important;
+}
+
+
+/* Navbar principal permanece como está */
+.custom-navbar {
+    background-color: #424242;
+}
+
+/* Tornar cards mais modernos */
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #424242;
+    color: #fff;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Imagens com efeito */
+.card img {
+    border-bottom: 1px solid #00000030;
+}
+
+/* Hover suave */
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* Títulos e textos */
+.card-title {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.card-text {
+    color: #d1d1d1;
+}
+
+/* Ajuste específico para categorias acima dos cards (Promoções, Periféricos etc.) */
+h2 {
+    color: #ffffff;
+}
+
+/* Textos de descrição e avaliações do produto */
+h4, p, strong {
+    color: #ffffff !important;
+}
+
+/* Footer permanece como está */
+footer {
+    background-color: #424242 !important;
+    color: #ffffff !important;
+}
+
+footer a {
+    color: #ffffff !important;
+}
+
+footer span {
+    color: #ffffff !important;
+}
+
+/* Ajuste search bar */
+form {
+    width: 75%;
+}
